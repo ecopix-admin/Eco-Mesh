@@ -18,12 +18,17 @@ jobs:
         with:
           node-version: '16'
 
+      # Cordova və lazımi asılılıqları quraşdırırıq
+      - name: Install Cordova
+        run: npm install -g cordova
+
+      # Android platformasını əlavə edərkən mühiti yoxlayırıq
       - name: Build APK
         run: |
-          npm install -g cordova
           cordova platform add android
           cordova build android --release
 
+      # APK-nı "Actions" bölməsindən yükləmək üçün hazırlayırıq
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
