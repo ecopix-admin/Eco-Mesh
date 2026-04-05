@@ -5,8 +5,7 @@ jobs:
   android:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Set up JDK 11
         uses: actions/setup-java@v3
@@ -14,14 +13,16 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Install Cordova
-        run: npm install -g cordova
-
-      - name: Add Android Platform
-        run: cordova platform add android
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
       - name: Build APK
-        run: cordova build android --release
+        run: |
+          npm install -g cordova
+          cordova platform add android
+          cordova build android --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v3
