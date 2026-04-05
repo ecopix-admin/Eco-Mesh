@@ -13,10 +13,6 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      # Bu hissə Android SDK-nı quraşdırır
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -26,10 +22,10 @@ jobs:
         run: |
           npm install -g cordova
           cordova platform add android
-          cordova build android
-          
+          cordova build android --release
+
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
           name: Eco-Mesh-App
-          path: platforms/android/app/build/outputs/apk/debug/*.apk
+          path: platforms/android/app/build/outputs/apk/release/*.apk
