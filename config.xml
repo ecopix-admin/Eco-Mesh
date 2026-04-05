@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="net.ecomesh.v1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+    <name>Eco Mesh</name>
+    <description>Gözəgörünməz Mesh Rabitə</description>
+    
+    <plugin name="cordova-plugin-wifi-direct" spec="^1.0.0" />
+    <plugin name="cordova-plugin-bluetooth-le" spec="^6.0.0" />
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.RECORD_AUDIO" />
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-permission android:name="android.permission.BLUETOOTH" />
+        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
+        <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    </config-file>
+
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
