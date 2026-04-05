@@ -1,0 +1,9 @@
+{
+  "name": "Eco Mesh",
+  "short_name": "EcoMesh",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#007aff",
+  "theme_color": "#007aff",
+  "icons": [{ "src": "icon.png", "sizes": "512x512", "type": "image/png" }]
+}
